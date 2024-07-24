@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
+import '../home/home.dart';
 
 class Splash extends StatelessWidget {
   static const routeNamed = "splash";

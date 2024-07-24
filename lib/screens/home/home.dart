@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:islame_project/screens/home/tabs/ahadath/ahadath.dart';
+import 'package:islame_project/screens/home/tabs/quran/quran.dart';
+import 'package:islame_project/screens/home/tabs/radio/radio.dart';
+import 'package:islame_project/screens/home/tabs/sebha/sebha.dart';
 import 'package:islame_project/utils/app_style.dart';
 
-import '../utils/app_colors.dart';
+import '../../utils/app_colors.dart';
 
 class Home extends StatefulWidget {
   static const routeNamed = "Home";
@@ -13,12 +17,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int selectedtabIndex = 0;
+  int selectedTabIndex = 0;
+  List<Widget> tabs = [Quran(), MyRadio(), Ahadath(), Sebha()];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage("assets/images/main_background.png"))),
       child: Scaffold(
@@ -32,7 +37,9 @@ class _HomeState extends State<Home> {
             elevation: 0,
           ),
           backgroundColor: AppColors.transparent,
-          bottomNavigationBar: buildBottonsNavgations()),
+        bottomNavigationBar: buildBottonsNavgations(),
+        body: tabs[selectedTabIndex],
+      ),
     );
   }
 
@@ -41,11 +48,11 @@ class _HomeState extends State<Home> {
       data: ThemeData(canvasColor: AppColors.primary),
       child: BottomNavigationBar(
         selectedItemColor: AppColors.accent,
-        selectedIconTheme: IconThemeData(size: 36),
+        selectedIconTheme: const IconThemeData(size: 36),
         // showUnselectedLabels: true,
-        currentIndex: selectedtabIndex,
+        currentIndex: selectedTabIndex,
         onTap: (Index) {
-          selectedtabIndex = Index;
+          selectedTabIndex = Index;
           setState(() {});
         },
 

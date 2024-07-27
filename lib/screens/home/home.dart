@@ -29,8 +29,8 @@ class _HomeState extends State<Home> {
       child: Scaffold(
           appBar: AppBar(
             title: Text(
-              "islami",
-              style: AppStyle.appBartextstyle,
+            "اسلامي",
+            style: AppStyle.appBartextstyle,
             ),
             centerTitle: true,
             backgroundColor: AppColors.transparent,

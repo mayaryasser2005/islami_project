@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:islame_project/screens/home/home.dart';
+import 'package:islame_project/screens/home/tabs/sebha/sebha.dart';
 import 'package:islame_project/screens/splash/splash.dart';
+import 'package:islame_project/screens/suradetails/suradetails.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,6 +17,8 @@ class MyApp extends StatelessWidget {
       routes: {
         Splash.routeNamed: (_) => const Splash(),
         Home.routeNamed: (_) => const Home(),
+        SuraDetails.routeNamed: (_) => SuraDetails(),
+        Sebha.routeNamed: (_) => Sebha()
       },
       initialRoute: Splash.routeNamed,
     );

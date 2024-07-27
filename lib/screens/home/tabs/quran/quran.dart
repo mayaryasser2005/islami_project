@@ -12,7 +12,7 @@ class Quran extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        buildheaderImage(),
+        buildHeaderImage(),
         Expanded(
           flex: 70,
           child: Stack(
@@ -39,7 +39,7 @@ class Quran extends StatelessWidget {
                     ],
                   ),
                   buildDivider(),
-                  buildSuraList()
+                  // buildSuraList()
                 ],
               ),
               const VerticalDivider(
@@ -58,26 +58,24 @@ class Quran extends StatelessWidget {
         flex: 70,
         child: ListView.builder(
             itemCount: Constants.suraNames.length,
-            itemBuilder: (context, Index) {
-              return Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      Constants.suraNames[Index].toString(),
-                      textAlign: TextAlign.center,
-                      style: AppStyle.appBartextstyle,
-                    ),
-                  ),
-                  Expanded(
-                      child: Text(
-                    Constants.versesNumber[Index].toString(),
-                    textAlign: TextAlign.center,
-                    style: AppStyle.appBartextstyle,
-                  ))
-                ],
-              );
-            }),
-      );
+        itemBuilder: (context, Index) => Row(
+          children: [
+            Expanded(
+              child: Text(
+                Constants.suraNames[Index].toString(),
+                textAlign: TextAlign.center,
+                style: AppStyle.appBartextstyle,
+              ),
+            ),
+            Expanded(
+                child: Text(
+              Constants.versesNumber[Index].toString(),
+              textAlign: TextAlign.center,
+              style: AppStyle.appBartextstyle,
+            ))
+          ],
+        ),
+      ));
 
   Divider buildDivider() {
     return const Divider(
@@ -86,11 +84,8 @@ class Quran extends StatelessWidget {
     );
   }
 
-  Expanded buildheaderImage() {
+  Expanded buildHeaderImage() {
     return Expanded(
-        flex: 30,
-        child: Container(
-          child: Image.asset(AppAssets.quranTabLogo),
-        ));
+        flex: 30, child: Image.asset(AppAssets.quranTabLogo));
   }
 }

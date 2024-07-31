@@ -18,7 +18,7 @@ class _AhadethDetailsState extends State<AhadethDetails> {
     Hadeth hadeth = ModalRoute.of(context)!.settings.arguments as Hadeth;
 
     return AppScaffold(
-        appBarTitle: hadeth.title, body: buildHadethContant(Hadeth.contant));
+        appBarTitle: hadeth.title, body: buildHadethContant(hadeth.contant));
   }
 
   Center buildHadethContant(String contant) => Center(

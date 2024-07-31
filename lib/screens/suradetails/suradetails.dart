@@ -55,7 +55,9 @@ class _SuraDetailsState extends State<SuraDetails> {
     for (int i = 0; i < fileLines.length; i++) {
       fileLines[i] += "(${i + 1})";
     }
-    fileContent = fileLines.join();
-    setState(() {});
+
+    setState(() {
+      fileContent = fileLines.join();
+    });
   }
 }

@@ -48,7 +48,7 @@ class _AhadathState extends State<Ahadath> {
                       children: [
                         Expanded(
                             child: Text(
-                          "Sura Name",
+                          "Name",
                           textAlign: TextAlign.center,
                           style: AppStyle.appBartextstyle,
                         )),

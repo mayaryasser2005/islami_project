@@ -1,6 +1,6 @@
-class SuraDetaiaArys {
+class SuraDetaiaArgs {
   String suraname;
   String filename;
 
-  SuraDetaiaArys({required this.suraname, required this.filename});
+  SuraDetaiaArgs({required this.suraname, required this.filename});
 }

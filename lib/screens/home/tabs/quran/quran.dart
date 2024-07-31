@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:islame_project/utils/app_assets.dart';
-import 'package:islame_project/utils/app_colors.dart';
-import 'package:islame_project/utils/app_style.dart';
-import 'package:islame_project/utils/constants.dart';
+
+import '../../../../model/suraDetailArys.dart';
+import '../../../../utils/app_assets.dart';
+import '../../../../utils/app_colors.dart';
+import '../../../../utils/app_style.dart';
+import '../../../../utils/constants.dart';
+import '../../../suradetails/suradetails.dart';
 
 class Quran extends StatelessWidget {
   const Quran({super.key});
@@ -10,82 +13,110 @@ class Quran extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        buildHeaderImage(),
+        Expanded(
+            flex: 30,
+            child: Center(child: Image.asset(AppAssets.quranTabLogo))),
         Expanded(
           flex: 70,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Column(
-                children: [
-                  buildDivider(),
-                  const Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          "suraname",
+          child:
+              Stack // we use stack to make the VerticalDivider to be under the 2 horizontal line and the two title
+                  (
+                      alignment: Alignment.center,
+                      // we use it to make the vertical line in the the center
+                      children: [
+                Column(
+                  children: [
+                    build_divider(),
+                    const Row(
+                      children: [
+                        Expanded(
+                            child: Text(
+                          "Sura Name",
                           textAlign: TextAlign.center,
                           style: AppStyle.appBartextstyle,
-                        ),
-                      ),
-                      Expanded(
-                          child: Text(
-                        "Verses",
-                        textAlign: TextAlign.center,
-                        style: AppStyle.appBartextstyle,
-                      ))
-                    ],
-                  ),
-                  buildDivider(),
-                  // buildSuraList()
-                ],
-              ),
-              const VerticalDivider(
-                color: AppColors.primary,
-                thickness: 3,
-                indent: 10,
-              ),
-            ],
-          ),
-        ),
+                        )),
+                        Expanded(
+                            child: Text(
+                          "Verses",
+                          textAlign: TextAlign.center,
+                          style: AppStyle.appBartextstyle,
+                        )),
+                      ],
+                    ),
+                    build_divider(),
+                    build_suras_list(),
+                  ],
+                ),
+
+                VerticalDivider(
+                  thickness: 3,
+                  color: AppColors.primary,
+                  indent: 9,
+                )
+                // The vertical line to separate the two lists.
+                // NOTE:  we use (indent: 9) to make the vertical line not to cross the line
+                // if you want to try delete (indent: 9)
+              ]),
+        )
       ],
     );
   }
 
-  Expanded buildSuraList() => Expanded(
+  Divider build_divider() => Divider(
+        color: AppColors.primary,
+        thickness: 3,
+        indent: 10,
+      );
+
+  /*
+
+    Container == Divider(color: App_Colors.primary, thickness: 3,),
+    (
+      width: double.infinity,
+      height: 3,
+      color: App_Colors.primary,
+    ),
+
+  */
+
+  Expanded build_suras_list() => Expanded(
         flex: 70,
         child: ListView.builder(
             itemCount: Constants.suraNames.length,
-        itemBuilder: (context, Index) => Row(
-          children: [
-            Expanded(
-              child: Text(
-                Constants.suraNames[Index].toString(),
-                textAlign: TextAlign.center,
-                style: AppStyle.appBartextstyle,
-              ),
-            ),
-            Expanded(
-                child: Text(
-              Constants.versesNumber[Index].toString(),
-              textAlign: TextAlign.center,
-              style: AppStyle.appBartextstyle,
-            ))
-          ],
-        ),
-      ));
-
-  Divider buildDivider() {
-    return const Divider(
-      color: AppColors.primary,
-      thickness: 3,
-    );
-  }
-
-  Expanded buildHeaderImage() {
-    return Expanded(
-        flex: 30, child: Image.asset(AppAssets.quranTabLogo));
-  }
+            // take the number of Sura names and Verses to build the list of Sura names
+            itemBuilder:
+                (context, index) // build the Sura names list and Verses list
+                {
+              return InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, SuraDetails.routeNamed,
+                      arguments: SuraDetaiaArgs(
+                          suraname: Constants.suraNames[index],
+                          filename: "${index + 1}.txt"));
+                },
+                child: Row(
+                  children: [
+                    Expanded // اسماء صور
+                        (
+                            flex: 50,
+                            child: Text(
+                              Constants.suraNames[index],
+                              textAlign: TextAlign.center,
+                              style: AppStyle.appBartextstyle,
+                            )),
+                    Expanded // عدد الايات في كل صورة
+                        (
+                            flex: 50,
+                            child: Text(
+                              Constants.versesNumber[index].toString(),
+                              textAlign: TextAlign.center,
+                              style: AppStyle.appBartextstyle,
+                            ))
+                  ],
+                ),
+              );
+            }),
+      );
 }

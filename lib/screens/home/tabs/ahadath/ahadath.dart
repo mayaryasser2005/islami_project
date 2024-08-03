@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import '../../../../model/hadeth.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
-import '../../../../utils/app_style.dart';
 import '../../../../utils/constants.dart';
 import '../../../ahadethDetails/ahadethDetails.dart';
 
@@ -44,13 +43,13 @@ class _AhadathState extends State<Ahadath> {
                 Column(
                   children: [
                     build_divider(),
-                    const Row(
+                    Row(
                       children: [
                         Expanded(
                             child: Text(
                           "Name",
                           textAlign: TextAlign.center,
-                          style: AppStyle.appBartextstyle,
+                          style: Theme.of(context).textTheme.displayLarge,
                         )),
                       ],
                     ),
@@ -121,7 +120,8 @@ class _AhadathState extends State<Ahadath> {
                                 child: Text(
                                   Constants.suraNames[index],
                                   textAlign: TextAlign.center,
-                                  style: AppStyle.appBartextstyle,
+                                  style:
+                                      Theme.of(context).textTheme.displayLarge,
                                 )),
                       ],
                     ),

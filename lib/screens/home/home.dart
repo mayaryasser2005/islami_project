@@ -3,6 +3,8 @@ import 'package:islame_project/screens/home/tabs/ahadath/ahadath.dart';
 import 'package:islame_project/screens/home/tabs/quran/quran.dart';
 import 'package:islame_project/screens/home/tabs/radio/radio.dart';
 import 'package:islame_project/screens/home/tabs/sebha/sebha.dart';
+import 'package:islame_project/screens/home/tabs/setting/setting.dart';
+import 'package:islame_project/utils/extenisions.dart';
 import 'package:islame_project/witgets/app_scaffold.dart';
 
 import '../../utils/app_colors.dart';
@@ -17,18 +19,19 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int selectedTabIndex = 2;
+  int selectedTabIndex = 1;
   List<Widget> tabs = [
     const Quran(),
     const MyRadio(),
     Ahadath(),
-    const Sebha()
+    const Sebha(),
+    Setting()
   ];
 
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      appBarTitle: "اسلامي",
+      appBarTitle: context.localization.islami,
       body: tabs[selectedTabIndex],
       bottomNavgationBar: Theme(
         data: ThemeData(canvasColor: AppColors.primary),
@@ -42,19 +45,22 @@ class _HomeState extends State<Home> {
             setState(() {});
           },
 
-          items: const [
-            BottomNavigationBarItem(
+          items: [
+            const BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_moshaf_gold.png")),
                 label: "Moshaf"),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_radio.png")),
                 label: "Radio"),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_ktab.png")),
                 label: "Ktab"),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_sebha.png")),
                 label: "Sebha"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: context.localization.settings),
           ],
         ),
       ),

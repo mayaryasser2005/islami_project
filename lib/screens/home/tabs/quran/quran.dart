@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../../model/suraDetailArys.dart';
 import '../../../../utils/app_assets.dart';
 import '../../../../utils/app_colors.dart';
-import '../../../../utils/app_style.dart';
 import '../../../../utils/constants.dart';
 import '../../../suradetails/suradetails.dart';
 
@@ -29,24 +28,24 @@ class Quran extends StatelessWidget {
                 Column(
                   children: [
                     build_divider(),
-                    const Row(
+                    Row(
                       children: [
                         Expanded(
                             child: Text(
                           "Sura Name",
                           textAlign: TextAlign.center,
-                          style: AppStyle.appBartextstyle,
+                          style: Theme.of(context).textTheme.displayLarge,
                         )),
                         Expanded(
                             child: Text(
                           "Verses",
                           textAlign: TextAlign.center,
-                          style: AppStyle.appBartextstyle,
+                          style: Theme.of(context).textTheme.displayLarge,
                         )),
                       ],
                     ),
                     build_divider(),
-                    build_suras_list(),
+                    buildsuralist(),
                   ],
                 ),
 
@@ -81,7 +80,7 @@ class Quran extends StatelessWidget {
 
   */
 
-  Expanded build_suras_list() => Expanded(
+  Expanded buildsuralist() => Expanded(
         flex: 70,
         child: ListView.builder(
             itemCount: Constants.suraNames.length,
@@ -104,7 +103,7 @@ class Quran extends StatelessWidget {
                             child: Text(
                               Constants.suraNames[index],
                               textAlign: TextAlign.center,
-                              style: AppStyle.appBartextstyle,
+                              style: Theme.of(context).textTheme.displayLarge,
                             )),
                     Expanded // عدد الايات في كل صورة
                         (
@@ -112,7 +111,7 @@ class Quran extends StatelessWidget {
                             child: Text(
                               Constants.versesNumber[index].toString(),
                               textAlign: TextAlign.center,
-                              style: AppStyle.appBartextstyle,
+                              style: Theme.of(context).textTheme.displayLarge,
                             ))
                   ],
                 ),

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islame_project/providres/language_providers.dart';
 import 'package:islame_project/utils/app_colors.dart';
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islame_project/utils/extenisions.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../providres/provider_theme.dart';
 
 class Setting extends StatefulWidget {
   Setting({super.key});
@@ -17,8 +14,7 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
-  final provider = Provider.of(context);
-  bool inDarkThemeEnable = false;
+  late final provider = Provider.of(context);
 
   @override
   Widget build(BuildContext context) {
@@ -28,20 +24,20 @@ class _SettingState extends State<Setting> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            context.localization.language,
+            "lang",
             style: Theme.of(context).textTheme.displayLarge,
           ),
-          SizedBox(
+          const SizedBox(
             height: 18,
           ),
           buildLanguageMenu(),
-          SizedBox(
+          const SizedBox(
             height: 18,
           ),
           Row(
             children: [
               Text(
-                context.localization.theme,
+                "context.localization.theme",
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               const Spacer(),
@@ -68,9 +64,9 @@ class _SettingState extends State<Setting> {
       );
 
   Widget buildThemeSwitch() => Switch(
-      value: ThemeProvider.isDarkThemeEnabled,
+      value: provider.isDarkThemeEnabled,
       activeColor: AppColors.primary,
       onChanged: (newvalue) {
-        ThemeProvider.newTheme = newvalue ? ThemeMode.dark : ThemeMode.light;
+        provider.newTheme = newvalue ? ThemeMode.dark : ThemeMode.light;
       });
 }

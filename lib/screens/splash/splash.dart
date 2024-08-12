@@ -12,8 +12,16 @@ class Splash extends StatelessWidget {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, Home.routeNamed);
     });
-    return Scaffold(
-      body: Image.asset("assets/images/splash.png"),
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                "assets/images/splash.png",
+              ))),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+      ),
     );
   }
 }

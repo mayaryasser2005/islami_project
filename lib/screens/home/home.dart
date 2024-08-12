@@ -4,10 +4,10 @@ import 'package:islame_project/screens/home/tabs/quran/quran.dart';
 import 'package:islame_project/screens/home/tabs/radio/radio.dart';
 import 'package:islame_project/screens/home/tabs/sebha/sebha.dart';
 import 'package:islame_project/screens/home/tabs/setting/setting.dart';
-import 'package:islame_project/utils/extenisions.dart';
 import 'package:islame_project/witgets/app_scaffold.dart';
+import 'package:provider/provider.dart';
 
-import '../../utils/app_colors.dart';
+import '../../providres/provider_theme.dart';
 
 class Home extends StatefulWidget {
   static const routeNamed = "Home";
@@ -28,15 +28,17 @@ class _HomeState extends State<Home> {
     Setting()
   ];
 
+  late ThemeProvider themeprovider;
   @override
   Widget build(BuildContext context) {
+    themeprovider = Provider.of(context);
     return AppScaffold(
-      appBarTitle: context.localization.islami,
+      appBarTitle: "context.localization.islami,",
       body: tabs[selectedTabIndex],
       bottomNavgationBar: Theme(
-        data: ThemeData(canvasColor: AppColors.primary),
+        data:
+            Theme.of(context).copyWith(canvasColor: themeprovider.primaryColor),
         child: BottomNavigationBar(
-          selectedItemColor: AppColors.accent,
           selectedIconTheme: const IconThemeData(size: 36),
           // showUnselectedLabels: true,
           currentIndex: selectedTabIndex,
@@ -59,11 +61,15 @@ class _HomeState extends State<Home> {
                 icon: ImageIcon(AssetImage("assets/images/ic_sebha.png")),
                 label: "Sebha"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: context.localization.settings),
+                icon: const Icon(Icons.settings),
+                label: " context.localization.settings"),
           ],
         ),
       ),
     );
   }
+
+  AppBar buildAppBar() => AppBar(
+        title: Text(" context.localization.islami,"),
+      );
 }

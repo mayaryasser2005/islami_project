@@ -14,15 +14,15 @@ class MyRadio extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(25.0),
-          child: Container(
-              width: double.infinity,
               // color: Color.fromRGBO(233, 186, 108, 1.0),
 
-              alignment: Alignment.center,
-              child: FittedBox(child: Image.asset(AppAssets.radioTabLogo)
-                  //We use FittedBox to solve the small image problem to create the right size image for the application
-                  )),
-        ),
+            child: Image.asset(
+              AppAssets.radioTabLogo,
+              width: 300,
+            )
+            //We use FittedBox to solve the small image problem to create the right size image for the application
+
+            ),
         const SizedBox(height: 20),
         const Text(
           "اذان القران الكريم",

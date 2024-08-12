@@ -27,7 +27,7 @@ class Quran extends StatelessWidget {
                       children: [
                 Column(
                   children: [
-                    build_divider(),
+                    buildDivider(),
                     Row(
                       children: [
                         Expanded(
@@ -44,12 +44,12 @@ class Quran extends StatelessWidget {
                         )),
                       ],
                     ),
-                    build_divider(),
+                    buildDivider(),
                     buildsuralist(),
                   ],
                 ),
 
-                VerticalDivider(
+                const VerticalDivider(
                   thickness: 3,
                   color: AppColors.primary,
                   indent: 9,
@@ -63,7 +63,7 @@ class Quran extends StatelessWidget {
     );
   }
 
-  Divider build_divider() => Divider(
+  Divider buildDivider() => const Divider(
         color: AppColors.primary,
         thickness: 3,
         indent: 10,

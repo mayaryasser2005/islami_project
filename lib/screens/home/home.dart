@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     themeprovider = Provider.of(context);
     return AppScaffold(
-      appBarTitle: "context.localization.islami,",
+      appBarTitle: "islami",
       body: tabs[selectedTabIndex],
       bottomNavgationBar: Theme(
         data:
@@ -47,21 +47,21 @@ class _HomeState extends State<Home> {
             setState(() {});
           },
 
-          items: [
-            const BottomNavigationBarItem(
+          items: const [
+            BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_moshaf_gold.png")),
                 label: "Moshaf"),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_radio.png")),
                 label: "Radio"),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_ktab.png")),
                 label: "Ktab"),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/images/ic_sebha.png")),
                 label: "Sebha"),
             BottomNavigationBarItem(
-                icon: const Icon(Icons.settings),
+                icon: Icon(Icons.settings),
                 label: " context.localization.settings"),
           ],
         ),

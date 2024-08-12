@@ -6,7 +6,7 @@ import '../../witgets/app_scaffold.dart';
 class AhadethDetails extends StatefulWidget {
   static const String routeNamed = "hadeth_Details";
 
-  AhadethDetails({super.key});
+  const AhadethDetails({super.key});
 
   @override
   State<AhadethDetails> createState() => _AhadethDetailsState();
@@ -25,7 +25,7 @@ class _AhadethDetailsState extends State<AhadethDetails> {
         child: Container(
             height: MediaQuery.of(context).size.height * 0.8,
             width: MediaQuery.of(context).size.width * 0.8,
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(25)),
             child: SingleChildScrollView(

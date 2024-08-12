@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 
 class Setting extends StatefulWidget {
+  static const String routeNamed = "Setting";
   Setting({super.key});
 
   late LanguageProviders provider;

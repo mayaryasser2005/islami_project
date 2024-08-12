@@ -4,6 +4,7 @@ import 'package:islame_project/providres/provider_theme.dart';
 import 'package:islame_project/screens/ahadethDetails/ahadethDetails.dart';
 import 'package:islame_project/screens/home/home.dart';
 import 'package:islame_project/screens/home/tabs/sebha/sebha.dart';
+import 'package:islame_project/screens/home/tabs/setting/setting.dart';
 import 'package:islame_project/screens/splash/splash.dart';
 import 'package:islame_project/screens/suradetails/suradetails.dart';
 import 'package:islame_project/utils/app_style.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         Sebha.routeNamed: (_) => const Sebha(),
         SuraDetails.routeNamed: (_) => SuraDetails(),
         AhadethDetails.routeNamed: (_) => AhadethDetails(),
+        Setting.routeNamed: (_) => Setting()
       },
       initialRoute: Splash.routeNamed,
     );

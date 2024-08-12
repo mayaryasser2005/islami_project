@@ -9,13 +9,11 @@ class MyRadio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        SizedBox(
+        const SizedBox(
           height: 120,
         ),
         Padding(
           padding: const EdgeInsets.all(25.0),
-              // color: Color.fromRGBO(233, 186, 108, 1.0),
-
             child: Image.asset(
               AppAssets.radioTabLogo,
               width: 300,

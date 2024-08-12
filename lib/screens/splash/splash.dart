@@ -13,13 +13,13 @@ class Splash extends StatelessWidget {
       Navigator.pushReplacementNamed(context, Home.routeNamed);
     });
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage(
                 "assets/images/splash.png",
               ))),
-      child: Scaffold(
+      child: const Scaffold(
         backgroundColor: Colors.transparent,
       ),
     );
